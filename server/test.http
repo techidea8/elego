@@ -1,0 +1,26 @@
+@hostname = 127.0.0.1
+@port = 8888
+@host = {{hostname}}:{{port}}
+@contentType = application/json
+@createdAt = {{$datetime iso8601}}
+
+### 测试微服务api
+POST   http://{{host}}/api
+content-type: {{contentType}}
+x-token:    "test"
+
+{
+    "Model": "Arith",
+    "Action":"Mul",
+    "Request":"{\"A\":1,\"B\":2}"
+}
+
+
+### 测试手机短信
+POST   http://{{host}}/open/sendsms
+content-type: {{contentType}}
+x-token:    "test"
+
+{
+    "mobile": "15367151352"
+}

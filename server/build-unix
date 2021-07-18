@@ -1,0 +1,16 @@
+#!/bin/sh
+go build -o kfserver
+mkdir -p kfserver-linux
+cp kfserver kfserver-linux/
+cp app.conf kfserver-linux/
+cp log.xml kfserver-linux/
+cp start.sh kfserver-linux/
+chmod +x kfserver-linux/start.sh
+cp -arf html kfserver-linux/
+cp -arf view kfserver-linux/
+cp -arf asset kfserver-linux/
+mkdir -p kfserver-linux/tmp
+mkdir -p kfserver-linux/log
+chmod 766 -R kfserver-linux/tmp
+chmod 766 -R kfserver-linux/log
+echo "build kfserver success!"
