@@ -10,7 +10,7 @@ restgo 框架 地址https://github.com/techidea8/restgo.git
     git clone https://github.com/techidea8/elego.git
 ```
 + 后端项目结构描述(server)
-
+```bash
 ├─args  --存放请求参数
 ├─config --存放全局配置文件
 ├─ctrl --存放全部控制器
@@ -24,7 +24,7 @@ restgo 框架 地址https://github.com/techidea8/restgo.git
 │  └─wxh5
 ├─service --存放service
 └─utils --常用工具类
-
+```
 
 
 + 前端项目(console)
