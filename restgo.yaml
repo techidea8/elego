@@ -1,10 +1,8 @@
-addr: 127.0.0.1:3306
-database: test
-dstdir: ./
+dns: root:root@(127.0.0.1:3306)/test?charset=utf8mb4&loc=Local
+frontdir: ./console/src
 lang: go
 model: test
-package: turinapp
-password: test
+package: turingapp
+serverdir: ./server
 table: test
-username: root
 tpldir: ./tmpl-go
