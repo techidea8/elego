@@ -1,0 +1,11 @@
+{{define "server/model"}}
+package model
+import "github.com/techidea8/restgo"
+//数据库模型
+type {{.Model}} struct{
+	{{range $i,$v := .Columns}}
+        {{ $v.ModelTag }}
+    {{end}}
+}
+
+{{end}}

@@ -1,0 +1,75 @@
+# system configuration
+system:
+  name: 'gmn'
+  env: 'dev'  # Change to "develop" to skip authentication for development mode
+  port: 8097
+  logo:  'https://www.techidea8.com/logo.jpg'
+  oss-type: 'aliyun'
+  dashboard: 'http://www.techidea8.com/'
+  vodhost: 'http://www.techidea8.com/hls'
+  description: '图灵跳动官方网站'
+  apikey: 'o893ihsad#$12-012fd&'
+  qqmapkey: 'TLFBZ-CV7CU-YEQVQ-BXPUB-RJXTO-ADB7H'
+# redis configuration
+redis:
+  db: 0
+#  addr: 'redis://47.113.206.65:6379'
+  addr: 'redis://127.0.0.1:6379'
+  password: 'rootme@123'
+  max-idle: 10
+  idle-timeout-sec: 30
+
+# redis configuration
+log:
+  filename: "./logs/log.log"
+  maxsize: 10
+  maxbackups: 30
+  maxage: 7
+  compress: true
+  level: -1
+  formate: 'console'
+  encodelevel:  'LowercaseLevelEncoder'
+
+# mysql connect configuration
+database:
+  db-type: 'sqlite3'   #sqlite3/mysql
+  addr: '.'
+#  db-name:  "dbturingmember.db"
+#  addr: 'iot.techidea8.com:3306'
+  db-name:  "dbturingcms.db"
+  query: 'charset=utf8mb4&parseTime=True&loc=Local'
+  username: '[username]'
+  password: '[password]'
+  max-idle-conns: 1
+  max-open-conns: 10
+  log-mode: 4  # 4 -info  1- 安静  2 :Error 3 警告
+  table-prefix: 'turing_'
+# captcha configuration
+captcha:
+  key-long: 6
+  img-width: 240
+  img-height: 80
+
+
+# local configuration
+local:
+  path: '/data/uploads'
+  location: 'https://dev.techidea8.com/mnt'
+
+
+# qiniu configuration (请自行七牛申请对应的 公钥 私钥 bucket 域名地址)
+aliyun:
+  endpoint: 'oss-cn-heyuan.aliyuncs.com'
+  bucket: '[butket name]'
+  location: 'https://[bucketname].oss-cn-heyuan.aliyuncs.com'
+  use-https: false
+  access-key: '[ak]'
+  secret-key: '[sk]'
+  use-cdn-domains: false
+#小程序号设置
+wxmp:
+  appid:  'wx6a7f509957940b4b'
+  secret: ''
+  cert: ''
+  mchid: ''
+  apikey: '' 

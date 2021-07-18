@@ -1,0 +1,54 @@
+{{define "server/service"}}
+package service
+
+import (
+	
+	"{{.Package}}/args"
+	"{{.Package}}/global"
+	"{{.Package}}/model"
+	
+)
+
+//创建新记录
+func Create{{.Model}}(property model.{{.Model}}) (result model.{{.Model}}, err error) {
+	err = global.DbEngin.Create(&property).Error
+	return property, nil
+}
+
+//更新某一条记录
+func Update{{.Model}}(property model.{{.Model}}) (result model.{{.Model}}, err error) {
+	err = global.DbEngin.Where("id = ?", property.Id).Updates(&property).Error
+	return property, err
+}
+
+//删除某一条记录
+func Delete{{.Model}}(property model.{{.Model}}) (result model.{{.Model}}, err error) {
+	err = global.DbEngin.Where("id = ?", property.Id).Delete(&property).Error
+	return property, nil
+}
+
+
+//查询一条记录
+func Find{{.Model}}ById(id uint) (result model.{{.Model}}, err error) {
+	result = model.{{.Model}}{}
+	err = global.DbEngin.Model(new(model.{{.Model}})).Where("id = ?", id).First(&result).Error
+	return result, err
+}
+
+//搜索支持分页
+func Search{{.Model}}(arg args.{{.Model}}) (result []model.{{.Model}}, total int64, err error) {
+	objs := make([]model.{{.Model}}, 0)
+
+	err = global.DbEngin.Model(new(model.{{.Model}})).Scopes(arg.Paginate(), arg.Condtions()).Order(arg.Sort()).Find(&objs).Error
+	total = 0
+	if arg.Total == -1 {
+		global.DbEngin.Model(new(model.{{.Model}})).Scopes(arg.Condtions()).Count(&total)
+	}
+	return objs, total, nil
+}
+
+
+
+
+
+{{end}}
