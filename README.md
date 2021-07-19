@@ -68,8 +68,6 @@ Usage of restctl.exe:
 ```yaml
 #数据库连接串,目前只支持mysql
 dns: root:root@(127.0.0.1:3306)/test?charset=utf8mb4&loc=Local
-#前端代码存放底子好
-frontdir: ./console/src
 #后端代码语言:go|java
 lang: go
 #对应表名称
@@ -78,8 +76,6 @@ table: test
 model: test
 #对应项目package
 package: turingapp
-#服务端代码路径
-serverdir: ./server
 #代码模板
 tpldir: ./tmpl-go
 ```
@@ -192,7 +188,7 @@ func (p *Activity) Condtions() func(db *gorm.DB) *gorm.DB {
 # 定制自己的模板
 
 ## 修改现有模板
-tmp-go下存放了项目模板
+tmp-go下存放了项目模板,注意存放路径由模板内部的模板名称决定
 ```
     api.js.html   -- 生成console/src/api/xx.js的模板
     args.go.html  -- 生成server/arg/xx.go的模板
