@@ -188,7 +188,7 @@ func (p *Activity) Condtions() func(db *gorm.DB) *gorm.DB {
 # 定制自己的模板
 
 ## 修改现有模板
-tmp-go下存放了项目模板,注意存放路径由模板内部的模板名称决定
+tmp-go下存放了项目模板
 ```
     api.js.html   -- 生成console/src/api/xx.js的模板
     args.go.html  -- 生成server/arg/xx.go的模板
@@ -197,6 +197,8 @@ tmp-go下存放了项目模板,注意存放路径由模板内部的模板名称�
     model.go.html -- 生成server/model/xx.go的模板
     service.go.html ---- 生成server/service/xx.go的模板
 ```
+## 修改模板生成路径
+以`api.js.html`为例,该文件包含了一个模板`"console/src/api/[model].js.tpl"`,改模板生成的文件对应路径为`console/src/api/[model].js`,,其中`[model]`代表`-m` 参数指定的字符,如 `-m test`, 如果需要修改生成的文件对应路径,只需要修改模板名称`{{define "console/src/api/[model].js.tpl"}}`即可. 
 
 ## diy自有模板
 
@@ -207,6 +209,7 @@ tmp-go下存放了项目模板,注意存放路径由模板内部的模板名称�
 ```yaml
 tpldir: ./tpldiy
 ```
+
 + 通过restctl -m xx -t yy 生成代码
 
 ## diy项目
